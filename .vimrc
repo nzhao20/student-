@@ -8,18 +8,9 @@ set softtabstop=4 "number of space in tab when editing
 set expandtab "tabs are spaces
 set shiftwidth=4 "indents are 4 spaces
 
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
-" Enable folding with the space bar
-nnoremap <space> za
-"searching
-set incsearch
-set hlsearch
-
 "ui configurations
-set number "shows line numbers
+set number
+set ruler "shows line numbers
 set showcmd "shows command in bottom bar
 set cursorline "highlight current line
 filetype indent on "load filetype-specific indent files
@@ -28,38 +19,8 @@ set lazyredraw
 set showmatch
 set encoding=utf-8 "support for utf8 encoding for characters
 
-"python indentation
-au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |   
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
-"OCaml indentation
-"au BufEnter *.ml setf ocaml
-"au BufEnter *.mli setf ocaml
-"au FileType ocaml call FT_ocaml()
-"function FT_ocaml()
-"    set textwidth=80
-"    set colorcolumn=80
-"    set shiftwidth=2
-"    set tabstop=2
-"endfunction
-"set rtp^="/Users/nicholaszhao/.opam/4.04.0/share/ocp-indent/vim"
-"status bar
-set laststatus=2 "always displays the status bar
-set noshowmode
-
-"Plugins
-call plug#begin('~/.vim/plugged')
-Plug 'itchyny/lightline.vim'
-Plug 'tmhedberg/SimpylFold'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'ervandew/supertab'
-call plug#end() 
-
+"ocp-indent
+set rtp^="/Users/nicholaszhao/.opam/4.03.0/share/ocp-indent/vim"
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
 let s:opam_share_dir = system("opam config var share")
 let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
@@ -92,8 +53,8 @@ for tool in s:opam_packages
   endif
 endfor
 " ## end of OPAM user-setup addition for vim / base ## keep this line
-" ## added by OPAM user-setup for vim / ocp-indent ## 76e511fdcc75861babe189153d21126d ## you can edit, but keep this line
+" ## added by OPAM user-setup for vim / ocp-indent ## f4f0018c05a61aea3afadda83ea6dab5 ## you can edit, but keep this line
 if count(s:opam_available_tools,"ocp-indent") == 0
-  source "/Users/nicholaszhao/.opam/4.04.0/share/vim/syntax/ocp-indent.vim"
+  source "/Users/nicholaszhao/.opam/4.07.0/share/ocp-indent/vim/indent/ocaml.vim"
 endif
 " ## end of OPAM user-setup addition for vim / ocp-indent ## keep this line
